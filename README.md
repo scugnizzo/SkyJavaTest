@@ -1,4 +1,3 @@
-# SkyJavaTest
 Parental Control Service
 ===
 
@@ -8,7 +7,7 @@ Sky is developing a next generation Video on Demand platform. You are part of a 
 services for the platform and working on the following story:
 
 **Prevent access to movies based on parental control level**
-*As a customer I donâ€™t want my account to be able to access movies that have a higher parental control level than my 
+*As a customer I don’t want my account to be able to access movies that have a higher parental control level than my 
 current preference setting.*
 
 **Parental Control Levels:**
@@ -25,7 +24,7 @@ You are required to provide an implementation of a *ParentalControlService*
 use Java version 6 or above and whatever libraries you find reasonable (just make sure you update the project's pom file 
 accordingly). 
 
-The service should accept as input the customerâ€™s *parental control level 
+The service should accept as input the customer’s *parental control level 
 preference* and a *movie id*. If the customer is able to watch the movie the *ParentalControlService* should indicate 
 this to the calling client.
 
@@ -76,7 +75,7 @@ The following table describes the expected ParentalControlService result based o
 
 | MovieService getParentalControlLevel response| Description                                     | ParentalControlService result  
 |----------------------------------------------|------------                                     |------------------------------
-| Parental Control level                       |A string e.g. "PG"                               |If the parental control level of the movie is equal to or less than the customerâ€™s preference indicate to the caller that the customer can watch the movie
+| Parental Control level                       |A string e.g. "PG"                               |If the parental control level of the movie is equal to or less than the customer’s preference indicate to the caller that the customer can watch the movie
 | TitleNotFoundException                       |The movie service could not find the given movie |Indicate the error to the calling client.
 | TechnicalFailureException                    |System error                                     |Indicate that the customer cannot watch this movie
 
