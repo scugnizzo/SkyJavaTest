@@ -8,7 +8,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <candidateName>FIRST_NAME.LAST_NAME</candidateName>
+        <candidateName>MASSIMO.SPOSATO</candidateName>
     </properties>
 
     <build>
