@@ -5,6 +5,7 @@ import com.bskyb.internettv.thirdparty.MovieService;
 import com.bskyb.internettv.thirdparty.TechnicalFailureException;
 import com.bskyb.internettv.thirdparty.TitleNotFoundException;
 import com.bskyb.internettv.thirdparty.util.LevelControl;
+import com.bskyb.internettv.thirdparty.util.MsgError;
  
 
 /**
@@ -16,10 +17,7 @@ public class ParentalControlServiceImpl implements ParentalControlService {
 
 	final private MovieService movieService;
 	
-	private final String NULLABLE_MOVE = "Null movie service given to ParentalControlServiceImpl";
-	private final String UNKNOW_LEVELG = "Unknown parental control level, not find the movie with the id:" ;
-	private final String INTER_ERR = "Internal error with movie service";
-	private final String INVALID_LEVEL = "invalid control Level returned from movie service";
+	 
 	
 	
     /**
@@ -29,7 +27,7 @@ public class ParentalControlServiceImpl implements ParentalControlService {
      */
     public ParentalControlServiceImpl(MovieService movieService) throws TechnicalFailureException {
         if (movieService == null) {
-            throw new TechnicalFailureException(NULLABLE_MOVE);
+            throw new TechnicalFailureException(MsgError.NULLABLE_MOVE);
         }
         this.movieService = movieService;
     }
@@ -56,7 +54,7 @@ public class ParentalControlServiceImpl implements ParentalControlService {
             case "18":
                 return LevelControl.VM_18.getValue();
             default:
-                throw new TechnicalFailureException(UNKNOW_LEVELG + customerParentalControlLevelPreference);
+                throw new TechnicalFailureException(MsgError.UNKNOW_LEVELG + customerParentalControlLevelPreference);
         }
     }
 
@@ -75,7 +73,7 @@ public class ParentalControlServiceImpl implements ParentalControlService {
             if (controlLevel != null) {
                 return controlLevel;
             } else {
-                throw new TechnicalFailureException(INVALID_LEVEL);
+                throw new TechnicalFailureException(MsgError.INVALID_LEVEL);
             }
         } catch (TechnicalFailureException | TitleNotFoundException ex) {
         	 /**
@@ -87,7 +85,7 @@ public class ParentalControlServiceImpl implements ParentalControlService {
              * MovieService behaving badly, ie runtime exceptionz
              * Do some logging here
             */
-        	throw new TechnicalFailureException(INTER_ERR, ex);
+        	throw new TechnicalFailureException(MsgError.INTER_ERR, ex);
         }
     }
 

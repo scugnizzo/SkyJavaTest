@@ -39,15 +39,14 @@ public enum LevelControl {
 	     * @return
 	     * @throws LevelNotFoundException
 	     */
-	    public static LevelControl getLevelControl(String pcl) throws LevelNotFoundException{
+	    public static LevelControl getLevelControl(int key) throws LevelNotFoundException{
 			try {
-				System.out.println(pcl );
-				System.out.println(LevelControl.valueOf(pcl) );
-				System.out.println(LevelControl.getByString(pcl) );
-				LevelControl pclFound = LevelControl.valueOf(pcl);
+			
+				LevelControl pclFound = ratingMap.get(key);
 				return pclFound;
+			
 			} catch (IllegalArgumentException e) {
-				throw new LevelNotFoundException(pcl + " is not listed as a Parental Control Level. It should be one of the following: ", e);
+				throw new LevelNotFoundException(key + " , it is not listed as a Parental Control Level. It should be one of the following: ", e);
 			}
 		}
 	    
